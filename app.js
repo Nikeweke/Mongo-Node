@@ -18,16 +18,15 @@ let errCatcher = (err) => {
 }
 
 
-let MySchema = new Schema({
+let employerSchema = new Schema({
     // id: Schema.ObjectId,
     id: String,
     name: String,
-    surname: String
+    surname: String,
 });
 
 // Compile model from schema
-let MyModel = mongoose.model('employees', MySchema );
-
+let employerModel = mongoose.model('employees', employerSchema );
 
 // make connection to mongo
 mongoose.connect(mongoDB, (err) => {/* if (err) console.log() */ }).catch(errCatcher)
@@ -41,10 +40,40 @@ db.on('error', errCatcher)
 
 // console.log('Here = ', db.readyState)
 // console.log(mongoose.connection.readyState);
+let data = {name: 'Nako', surname: 'Blondie'}
 
 
-MyModel.find({}, function (err, docs) {
- // docs.forEach
- console.log(docs)
-});
+function get (model) {
+   model.find({}, (err, docs) => {
+       // docs.forEach
+       console.log(docs)
+   });  
+}
 
+function insert (data) {
+    let employer = new employerModel(data);
+    employer.save((err) => {
+        if (err) console.log(err)
+        // saved!
+    })
+}
+
+function insert2 (data) {
+    employerModel.create(data, function (err, small) {
+      if (err) return handleError(err);
+      // saved!
+   })
+}
+
+function update () {
+}
+
+function deleteRecord () {
+    console.log('sss')
+}
+
+
+// get(employerModel)
+// insert()
+// get(employerModel)
+deleteRecord()
