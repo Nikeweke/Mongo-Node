@@ -1,5 +1,5 @@
 /*
-*  connect.js
+*  database.js
 *
 */
 const colors = require('colors')

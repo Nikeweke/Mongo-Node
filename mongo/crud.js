@@ -1,3 +1,8 @@
+/*
+*  crud.js
+*
+*  Crud functions for testing mongoDB with mongoose
+*/
 
 module.exports = {
   get,
