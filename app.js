@@ -9,6 +9,7 @@ const crud = require('./mongo/crud')
 const employerModel = require('./mongo/models/employer')
 const thingModel = require('./mongo/models/thing')
 
+// connecting to MongoDb
 connect()
 // console.log(mongoose.connection.readyState)
 
